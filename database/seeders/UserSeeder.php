@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,12 +15,14 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'phone' => Str::random(10),
-            'address' => Str::random(10),
-            'password' => Hash::make('password'),
-        ]);
+        for ($i = 0; $i < 10; $i++) {
+            User::create([
+                'name' => Str::random(10),
+                'email' => Str::random(10).'@gmail.com',
+                'phone' => '0' . rand(100000000, 999999999),
+                'address' => Str::random(10),
+                'password' => Hash::make('password'),
+            ]);
+        }
     }
 }
