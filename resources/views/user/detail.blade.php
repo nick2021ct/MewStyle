@@ -12,19 +12,19 @@
                                 <div class="col-lg-2">
                                     <div class="details-image-vertical black-slide rounded">
                                         <div>
-                                            <img src="../assets/images/fashion/product/front/1.jpg"
+                                            <img src="{{ asset('/') }}assets/users/images/fashion/product/front/1.jpg"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </div>
                                         <div>
-                                            <img src="../assets/images/fashion/2.jpg"
+                                            <img src="{{ asset('/') }}assets/users/images/fashion/2.jpg"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </div>
                                         <div>
-                                            <img src="../assets/images/fashion/3.jpg"
+                                            <img src="{{ asset('/') }}assets/users/images/fashion/3.jpg"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </div>
                                         <div>
-                                            <img src="../assets/images/fashion/4.jpg"
+                                            <img src="{{ asset('/') }}assets/users/images/fashion/4.jpg"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </div>
                                     </div>
@@ -32,23 +32,23 @@
                                 <div class="col-lg-10">
                                     <div class="details-image-1 ratio_asos">
                                         <div>
-                                            <img src="../assets/images/fashion/product/front/1.jpg" id="zoom_01"
-                                                data-zoom-image="assets/images/fashion/1.jpg"
+                                            <img src="{{ asset('/') }}assets/users/images/fashion/product/front/1.jpg" id="zoom_01"
+                                                data-zoom-image="{{ asset('/') }}assets/users/images/fashion/1.jpg"
                                                 class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload" alt="">
                                         </div>
                                         <div>
-                                            <img src="../assets/images/fashion/2.jpg" id="zoom_02"
-                                                data-zoom-image="assets/images/fashion/2.jpg"
+                                            <img src="{{ asset('/') }}assets/users/images/fashion/2.jpg" id="zoom_02"
+                                                data-zoom-image="{{ asset('/') }}assets/users/images/fashion/2.jpg"
                                                 class="img-fluid w-100 image_zoom_cls-1 blur-up lazyload" alt="">
                                         </div>
                                         <div>
-                                            <img src="../assets/images/fashion/3.jpg" id="zoom_03"
-                                                data-zoom-image="assets/images/fashion/3.jpg"
+                                            <img src="{{ asset('/') }}assets/users/images/fashion/3.jpg" id="zoom_03"
+                                                data-zoom-image="{{ asset('/') }}assets/users/images/fashion/3.jpg"
                                                 class="img-fluid w-100 image_zoom_cls-2 blur-up lazyload" alt="">
                                         </div>
                                         <div>
-                                            <img src="../assets/images/fashion/4.jpg" id="zoom_04"
-                                                data-zoom-image="assets/images/fashion/4.jpg"
+                                            <img src="{{ asset('/') }}assets/users/images/fashion/4.jpg" id="zoom_04"
+                                                data-zoom-image="{{ asset('/') }}assets/users/images/fashion/4.jpg"
                                                 class="img-fluid w-100 image_zoom_cls-3 blur-up lazyload" alt="">
                                         </div>
                                     </div>
@@ -61,13 +61,13 @@
                                 <div class="product-count">
                                     <ul>
                                         <li>
-                                            <img src="../assets/images/gif/fire.gif"
+                                            <img src="{{ asset('/') }}assets/users/images/gif/fire.gif"
                                                 class="img-fluid blur-up lazyload" alt="image">
                                             <span class="p-counter">37</span>
                                             <span class="lang">orders in last 24 hours</span>
                                         </li>
                                         <li>
-                                            <img src="../assets/images/gif/person.gif"
+                                            <img src="{{ asset('/') }}assets/users/images/gif/person.gif"
                                                 class="img-fluid user_img blur-up lazyload" alt="image">
                                             <span class="p-counter">44</span>
                                             <span class="lang">active view this</span>
@@ -92,19 +92,19 @@
                                         <ul class="image-section">
                                             <li>
                                                 <a href="javascript:void(0)">
-                                                    <img src="../assets/images/fashion/product/front/5.jpg"
+                                                    <img src="{{ asset('/') }}assets/users/images/fashion/product/front/5.jpg"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:void(0)">
-                                                    <img src="../assets/images/fashion/product/front/6.jpg"
+                                                    <img src="{{ asset('/') }}assets/users/images/fashion/product/front/6.jpg"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:void(0)">
-                                                    <img src="../assets/images/fashion/product/front/7.jpg"
+                                                    <img src="{{ asset('/') }}assets/users/images/fashion/product/front/7.jpg"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </a>
                                             </li>
@@ -186,7 +186,7 @@
 
                                 <ul class="product-count shipping-order">
                                     <li>
-                                        <img src="../assets/images/gif/truck.png" class="img-fluid blur-up lazyload"
+                                        <img src="{{ asset('/') }}assets/users/images/gif/truck.png" class="img-fluid blur-up lazyload"
                                             alt="image">
                                         <span class="lang">Free shipping for orders above $500 USD</span>
                                     </li>
@@ -320,7 +320,7 @@
                                     </div>
 
                                     <div class="col-lg-4">
-                                        <img src="../assets/images/fashion/slider/1.jpg"
+                                        <img src="{{ asset('/') }}assets/users/images/fashion/slider/1.jpg"
                                             class="img-fluid rounded blur-up lazyload" alt="">
                                     </div>
 
@@ -351,7 +351,7 @@
                                     </div>
 
                                     <div class="col-lg-4 order-lg-0 mt-4">
-                                        <img src="../assets/images/fashion/slider/2.jpg"
+                                        <img src="{{ asset('/') }}assets/users/images/fashion/slider/2.jpg"
                                             class="img-fluid rounded blur-up lazyload" alt="">
                                     </div>
                                 </div>
@@ -675,7 +675,7 @@
 
                                         <div class="customer-section">
                                             <div class="customer-profile">
-                                                <img src="../assets/images/inner-page/review-image/1.jpg"
+                                                <img src="{{ asset('/') }}assets/users/images/inner-page/review-image/1.jpg"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </div>
 
@@ -714,7 +714,7 @@
 
                                         <div class="customer-section">
                                             <div class="customer-profile">
-                                                <img src="../assets/images/inner-page/review-image/2.jpg"
+                                                <img src="{{ asset('/') }}assets/users/images/inner-page/review-image/2.jpg"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </div>
 
@@ -749,7 +749,7 @@
 
                                         <div class="customer-section">
                                             <div class="customer-profile">
-                                                <img src="../assets/images/inner-page/review-image/3.jpg"
+                                                <img src="{{ asset('/') }}assets/users/images/inner-page/review-image/3.jpg"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </div>
 
@@ -782,7 +782,7 @@
 
                                         <div class="customer-section">
                                             <div class="customer-profile">
-                                                <img src="../assets/images/inner-page/review-image/4.jpg"
+                                                <img src="{{ asset('/') }}assets/users/images/inner-page/review-image/4.jpg"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </div>
 
@@ -828,625 +828,5 @@
 </section>
 <!-- Shop Section end -->
 
-<!-- product section start -->
-<section class="ratio_asos section-b-space overflow-hidden">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="mb-lg-4 mb-3">Customers Also Bought These</h2>
-                <div class="product-wrapper product-style-2 slide-4 p-0 light-arrow bottom-space">
-                    <div>
-                        <div class="product-box">
-                            <div class="img-wrapper">
-                                <div class="front">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/front/23.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="details.html">
-                                        <img src="http://localhost:8000/assets/images/fashion/product/back/23.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="cart-wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0)" class="addtocart-btn"
-                                                data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                <i data-feather="shopping-bag"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#quick-view">
-                                                <i data-feather="eye"></i>
-                                            </a>
-                                        </li>
 
-                                        <li>
-                                            <a href="javascript:void(0)" class="wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <div class="rating-details">
-                                    <span class="font-light grid-content">Cupiditate Minus</span>
-                                    <ul class="rating mt-0">
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="main-price">
-                                    <a href="details.php" class="font-default">
-                                        <h5>Qui Laboriosam Quas Beatae</h5>
-                                    </a>
-                                    <div class="listing-content">
-                                        <span class="font-light">Regular Fit</span>
-                                        <p class="font-light">Dolorem nihil quia qui laudantium expedita aut dolor.
-                                            Qui eligendi voluptatem autem ullam et. Voluptas nemo eum nihil aliquam
-                                            eos aperiam. Numquam dolorum veniam non magnam illum odit deleniti.</p>
-                                    </div>
-                                    <h3 class="theme-color">$1</h3>
-                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                        To Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-box">
-                            <div class="img-wrapper">
-                                <div class="front">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/front/6.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/back/6.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="cart-wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0)" class="addtocart-btn"
-                                                data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                <i data-feather="shopping-bag"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#quick-view">
-                                                <i data-feather="eye"></i>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="javascript:void(0)" class="wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <div class="rating-details">
-                                    <span class="font-light grid-content">Qui Ut</span>
-                                    <ul class="rating mt-0">
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="main-price">
-                                    <a href="details.php" class="font-default">
-                                        <h5>Id Expedita Dolorem Sit</h5>
-                                    </a>
-                                    <div class="listing-content">
-                                        <span class="font-light">Regular Fit</span>
-                                        <p class="font-light">Rerum consequatur sunt placeat qui vero quod.
-                                            Voluptatem doloremque commodi quaerat autem fugiat iste. Voluptatem
-                                            repudiandae suscipit aut aspernatur maiores repellat corrupti.</p>
-                                    </div>
-                                    <h3 class="theme-color">$19</h3>
-                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                        To Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-box">
-                            <div class="img-wrapper">
-                                <div class="front">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/front/12.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="details.html">
-                                        <img src="http://localhost:8000/assets/images/fashion/product/back/12.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="cart-wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0)" class="addtocart-btn"
-                                                data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                <i data-feather="shopping-bag"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#quick-view">
-                                                <i data-feather="eye"></i>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="javascript:void(0)" class="wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <div class="rating-details">
-                                    <span class="font-light grid-content">Blanditiis Error</span>
-                                    <ul class="rating mt-0">
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="main-price">
-                                    <a href="details.php" class="font-default">
-                                        <h5>Laborum Debitis Necessitatibus Architecto</h5>
-                                    </a>
-                                    <div class="listing-content">
-                                        <span class="font-light">Regular Fit</span>
-                                        <p class="font-light">Ullam iure distinctio quaerat nam quasi rerum
-                                            nesciunt. Eius ut porro tempore error. Quo quibusdam est praesentium
-                                            quam reprehenderit officia vero. Commodi perspiciatis totam rerum
-                                            voluptatem.</p>
-                                    </div>
-                                    <h3 class="theme-color">$4</h3>
-                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                        To Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-box">
-                            <div class="img-wrapper">
-                                <div class="front">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/front/11.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="details.html">
-                                        <img src="http://localhost:8000/assets/images/fashion/product/back/11.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="cart-wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0)" class="addtocart-btn"
-                                                data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                <i data-feather="shopping-bag"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#quick-view">
-                                                <i data-feather="eye"></i>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="javascript:void(0)" class="wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <div class="rating-details">
-                                    <span class="font-light grid-content">Cupiditate Minus</span>
-                                    <ul class="rating mt-0">
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="main-price">
-                                    <a href="details.php" class="font-default">
-                                        <h5>Quidem Architecto Deleniti Hic</h5>
-                                    </a>
-                                    <div class="listing-content">
-                                        <span class="font-light">Regular Fit</span>
-                                        <p class="font-light">Sit repellat fugit recusandae voluptates et est.
-                                            Similique et consequuntur alias officia eos. Quos sed temporibus magnam
-                                            est quo aut. Totam at ducimus occaecati sequi sint sed enim.</p>
-                                    </div>
-                                    <h3 class="theme-color">$7</h3>
-                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                        To Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-box">
-                            <div class="img-wrapper">
-                                <div class="front">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/front/20.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="details.html">
-                                        <img src="http://localhost:8000/assets/images/fashion/product/back/20.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="cart-wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0)" class="addtocart-btn"
-                                                data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                <i data-feather="shopping-bag"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#quick-view">
-                                                <i data-feather="eye"></i>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="javascript:void(0)" class="wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <div class="rating-details">
-                                    <span class="font-light grid-content">Qui Ut</span>
-                                    <ul class="rating mt-0">
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="main-price">
-                                    <a href="details.php" class="font-default">
-                                        <h5>Error Itaque Debitis Commodi</h5>
-                                    </a>
-                                    <div class="listing-content">
-                                        <span class="font-light">Regular Fit</span>
-                                        <p class="font-light">Quos voluptates aut dolorum. Velit delectus eligendi
-                                            quia est. Explicabo sit dolores laboriosam ullam voluptas.</p>
-                                    </div>
-                                    <h3 class="theme-color">$5</h3>
-                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                        To Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-box">
-                            <div class="img-wrapper">
-                                <div class="front">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/front/8.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/back/8.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="cart-wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0)" class="addtocart-btn"
-                                                data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                <i data-feather="shopping-bag"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#quick-view">
-                                                <i data-feather="eye"></i>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="javascript:void(0)" class="wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <div class="rating-details">
-                                    <span class="font-light grid-content">Blanditiis Error</span>
-                                    <ul class="rating mt-0">
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="main-price">
-                                    <a href="details.php" class="font-default">
-                                        <h5>Odit Corporis Ut Pariatur</h5>
-                                    </a>
-                                    <div class="listing-content">
-                                        <span class="font-light">Regular Fit</span>
-                                        <p class="font-light">Corrupti et assumenda saepe natus voluptatem deserunt
-                                            aliquam. Non esse nemo exercitationem. Expedita libero quos quibusdam.
-                                        </p>
-                                    </div>
-                                    <h3 class="theme-color">$18</h3>
-                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                        To Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-box">
-                            <div class="img-wrapper">
-                                <div class="front">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/front/2.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/back/2.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="cart-wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0)" class="addtocart-btn"
-                                                data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                <i data-feather="shopping-bag"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#quick-view">
-                                                <i data-feather="eye"></i>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="javascript:void(0)" class="wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <div class="rating-details">
-                                    <span class="font-light grid-content">Dolores Et</span>
-                                    <ul class="rating mt-0">
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="main-price">
-                                    <a href="details.php" class="font-default">
-                                        <h5>Doloremque Quibusdam Maxime Natus</h5>
-                                    </a>
-                                    <div class="listing-content">
-                                        <span class="font-light">Regular Fit</span>
-                                        <p class="font-light">Hic fugiat molestiae sed. Impedit iusto nihil odio
-                                            eos. Nisi et est aperiam ut non culpa amet. Nemo aut et ipsa pariatur
-                                            cumque. Totam eveniet voluptatibus nostrum.</p>
-                                    </div>
-                                    <h3 class="theme-color">$11</h3>
-                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                        To Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="product-box">
-                            <div class="img-wrapper">
-                                <div class="front">
-                                    <a href="details.html">
-                                        <img src="../assets/images/fashion/product/front/14.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="details.html">
-                                        <img src="http://localhost:8000/assets/images/fashion/product/back/14.jpg"
-                                            class="bg-img blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="cart-wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0)" class="addtocart-btn"
-                                                data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                <i data-feather="shopping-bag"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#quick-view">
-                                                <i data-feather="eye"></i>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="javascript:void(0)" class="wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <div class="rating-details">
-                                    <span class="font-light grid-content">Qui Ut</span>
-                                    <ul class="rating mt-0">
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="main-price">
-                                    <a href="details.php" class="font-default">
-                                        <h5>Pariatur Qui Mollitia Et</h5>
-                                    </a>
-                                    <div class="listing-content">
-                                        <span class="font-light">Regular Fit</span>
-                                        <p class="font-light">Vero asperiores error sint soluta. Quia ut corrupti
-                                            perferendis quo vero. Recusandae quae et possimus. Aut voluptatem sunt
-                                            sit aliquid corporis aliquam.</p>
-                                    </div>
-                                    <h3 class="theme-color">$8</h3>
-                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
-                                        To Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- product section end -->
 @endsection

@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckOutController;
+use App\Http\Controllers\DetailController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +23,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/detail', [App\Http\Controllers\DetailController::class, 'index'])->name('detail');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/detail', [DetailController::class, 'detail'])->name('detail');
+Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+Route::get('/checkout', [CheckOutController::class, 'checkout'])->name('checkout');
 
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+});

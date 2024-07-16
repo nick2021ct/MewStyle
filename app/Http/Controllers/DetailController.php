@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 
 class DetailController extends Controller
 {
-    public function detail($id,Request $request){
-        $product = Product::find($id);
+    public function detail(){
         return view('user.detail');
     }
     /**
