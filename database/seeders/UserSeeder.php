@@ -15,7 +15,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 10; $i++) {
             User::create([
                 'name' => Str::random(10),
                 'email' => Str::random(10).'@gmail.com',
@@ -23,6 +22,6 @@ class UserSeeder extends Seeder
                 'address' => Str::random(10),
                 'password' => Hash::make('password'),
             ]);
-        }
+        
     }
 }
