@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
@@ -58,6 +59,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','role:admin'])->group
         Route::post('/edit/{id}', [ProductController::class, 'edit']);
          
         Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('delete');
+    });
+    Route::prefix('order')->name('order.')->group(function(){
+        Route::get('/', [OrderController::class, 'list'])->name('list');
+
+        Route::get('/order_detail', [OrderController::class, 'listOrderDetail'])->name('listOrderDetail');
+
+         
+        Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
     });
    
 });
