@@ -13,6 +13,24 @@ class BannerController extends Controller
 {
     use ImageUploadTrait;
 
+    public function validateBanner(Request $request)
+    {
+        return Validator::make($request->all(),[
+            'image' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
+            'product_image'=>['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
+            'title'=>['required','max:200'],
+            'price'=>['required','numeric'],
+            'sale_price'=>['numeric'],
+            'description'=>['required'],
+            ])->after(function ($validator) use ($request){
+                if ($request->sale_price >= $request->price) {
+                    $validator->errors()->add('sale_price', 'Sale price must be less than the regular price.');
+                }
+            });
+    }
+
+
+
     public function index()
     {
         $banners = Banner::all();
@@ -26,14 +44,7 @@ class BannerController extends Controller
 
     public function add(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'image' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
-            'product_image'=>['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
-            'title'=>['required','max:200'],
-            'price'=>['required','numeric'],
-            'sale_price'=>['numeric'],
-            'description'=>['required'],
-            ]);
+        $validator =$this->validateBanner($request);
 
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
@@ -67,14 +78,8 @@ class BannerController extends Controller
 
     public function edit(Request $request,$id)
     {
-        $validator = Validator::make($request->all(),[
-            'image' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
-            'product_image'=>['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
-            'title'=>['required','max:200'],
-            'price'=>['required','numeric'],
-            'sale_price'=>['numeric'],
-            'description'=>['required'],
-            ]);
+        $validator =$this->validateBanner($request);
+
 
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
@@ -84,8 +89,7 @@ class BannerController extends Controller
 
         $imagePath = $this->updateImage($request,'image','images/banner', $banner->image);
         $productImagePath = $this->updateImage($request,'product_image','images/banner/product',$banner->product_image);
-
-
+        
         $banner->image = $imagePath;
         $banner->product_image = $productImagePath;
         $banner->title = $request->title;

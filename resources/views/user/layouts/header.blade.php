@@ -60,8 +60,8 @@
                         <div class="main-menu">
                             <div class="menu-left">
                                 <div class="brand-logo">
-                                    <a href="index.htm">
-                                        <img src="assets/users/images/logo.png" class="h-logo img-fluid blur-up lazyload"
+                                    <a href="{{ route('home') }}">
+                                        <img src="{{ asset('/') }}assets/users/images/logo.png" class="h-logo img-fluid blur-up lazyload"
                                             alt="logo">
                                     </a>
                                 </div>

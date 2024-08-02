@@ -10,22 +10,23 @@
                 <div class="login-title">
                     <h2>Login</h2>  
                 </div>
+                
                 <div class="input">
-                    <label for="name">Email</label>
-                    <input type="email" id="name" name="email" :value="old('email')" required="" autofocus=""
-                        autocomplete="name">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control">
+                    @error('email')
+                        <strong style="color: red">{{ $message }}</strong>
+                    @enderror
                 </div>
-                @error('name')
-                <strong style="color: red">{{ $message }}</strong>
-            @enderror
+
                 <div class="input">
-                    <label for="pass">Password</label>
-                    <input type="password" id="pass" class="block mt-1 w-full" name="password" required=""
-                        autocomplete="current-password">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                    @error('password')
+                        <strong style="color: red">{{ $message }}</strong>
+                    @enderror
                 </div>
-                @error('name')
-                <strong style="color: red">{{ $message }}</strong>
-            @enderror
+
                 <a href="{{ route('password.request') }}" class="pass-forgot">Forgot your password?</a>
 
                 <div class="button login">

@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
+    use ImageUploadTrait;
 
     public function list()
     {
@@ -23,6 +25,7 @@ class CategoryController extends Controller
     private function validateCategory(Request $request)
     {
         return Validator::make($request->all(), [
+            'image' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
             'name' => ['required', 'unique:categories,name'],
         ]);
     }
@@ -34,7 +37,11 @@ class CategoryController extends Controller
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
         }
+
+        $imagePath = $this->uploadImage($request,'image','images/category');
+
        $cate = new Category();
+       $cate->image = $imagePath;
        $cate->name = $request->name;
        $cate->save();
         
@@ -58,6 +65,8 @@ class CategoryController extends Controller
         }
 
         $categories = Category::find($id);
+        $imagePath = $this->updateImage($request,'image','images/category', $categories->image);
+        $categories->image = $imagePath;
         $categories->name = $request->name;
         $categories->save();
 
@@ -69,6 +78,7 @@ class CategoryController extends Controller
     public function delete(Request $request,$id)
     {
         $categories = Category::find($id);
+        $this->deleteImage($categories->image);
         $categories->delete();
 
         toastr()->addSuccess('xoá category thành công');

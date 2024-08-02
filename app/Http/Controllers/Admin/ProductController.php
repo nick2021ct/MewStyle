@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImages;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,26 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
+
+
+    public function validateProduct(Request $request)
+    {
+        return Validator::make($request->all(),[
+            'images.*' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
+            'name'=>['required','max:200','unique:products,name'],
+            'description'=>['required'],
+            'price'=>['required','numeric'],
+            'sale_price'=>['numeric'],
+            'category_id'=>['required','exists:categories,id'],
+        ])->after(function ($validator) use ($request){
+            if ($request->sale_price >= $request->price) {
+                $validator->errors()->add('sale_price', 'Sale price must be less than the regular price.');
+            }
+            if (count($request->file('images', [])) > 4) {
+                $validator->errors()->add('images', 'You may only upload up to 4 images.');
+            }
+        });
+    }
     public function index(){
         $products = Product::with('category')->get();
         return view('admin.product.list',compact('products'));
@@ -27,14 +48,7 @@ class ProductController extends Controller
 
     public function add(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'images.*' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
-            'name'=>['required','max:200','unique:products,name'],
-            'description'=>['required'],
-            'price'=>['required','numeric'],
-            'sale_price'=>['numeric'],
-            'category_id'=>['required','exists:categories,id'],
-        ]);
+        $validator = $this->validateProduct($request);
 
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
@@ -71,14 +85,8 @@ class ProductController extends Controller
 
     public function edit(Request $request,$id)
     {
-        $validator = Validator::make($request->all(),[
-            'images.*' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
-            'name'=>['required','max:200'],
-            'description'=>['required'],
-            'price'=>['required','numeric'],
-            'sale_price'=>['numeric'],
-            'category_id'=>['required','exists:categories,id'],
-        ]);
+        $validator = $this->validateProduct($request);
+
 
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();

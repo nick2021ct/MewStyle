@@ -32,6 +32,7 @@
                   <thead>
                   <tr>
                     <th>ID</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Created at</th>
                     <th>Updated at</th>
@@ -43,6 +44,7 @@
                     @foreach ($categories as $category)
                     <tr> 
                     <td>{{ $category->id }}</td>
+                    <td><img src="{{ asset($category->image) }}" width="300px" alt=""></td>
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->created_at }}</td>
                     <td>{{ $category->updated_at }}</td>

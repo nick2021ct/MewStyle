@@ -32,6 +32,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/users/css/vendors/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/users/css/vendors/slick/slick-theme.css">
     <link id="color-link" rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/users/css/demo4.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/ion.rangeSlider.min.css" />
+
     <style>
         .h-logo {
             max-width: 185px !important;
@@ -46,6 +48,7 @@
                 max-width: 110px !important;
             }
         }
+        
     </style>
     <link rel="stylesheet" href="{{ asset('/') }}assets/users/css/custom.css">
 
@@ -245,6 +248,8 @@
 <script src="{{ asset('/') }}assets/users/js/bootstrap/bootstrap-notify.min.js"></script>
 <script src="{{ asset('/') }}assets/users/js/theme-setting.js"></script>
 <script src="{{ asset('/') }}assets/users/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/ion.rangeSlider.min.js"></script>
+
 <script>
     $(function () {
         $('[data-bs-toggle="tooltip"]').tooltip()

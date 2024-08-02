@@ -29,9 +29,16 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="">
+              <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
+                  <div class="form-group">
+                    <label for="image">Image</label>
+                    <input  type="file" name="image" class="form-control" id="image" placeholder="image">
+                  </div>
+                  @error('image')
+                      <span style="color: yellow"> {{ $message }}</span>
+                  @enderror
                   <div class="form-group">
                     <label for="name">Name</label>
                     <input  type="name" name="name" class="form-control" id="name" placeholder="name">

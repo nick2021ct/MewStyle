@@ -9,6 +9,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShopController;
 use App\Http\Middleware\CheckAdminMiddlerware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -28,62 +29,54 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail/{id}', [DetailController::class, 'detail'])->name('detail');
-
-
-
-
+Route::get('/shop/{categoryId?}', [ShopController::class, 'index'])->name('shop');
 
 Route::get('/checkout', [CheckOutController::class, 'checkout'])->name('checkout');
 
-Route::prefix('admin')->name('admin.')->middleware(['auth','role:admin'])->group(function(){
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-    Route::prefix('category')->name('category.')->group(function(){
+    Route::prefix('category')->name('category.')->group(function () {
         Route::get('/', [CategoryController::class, 'list'])->name('list');
 
         Route::get('/add', [CategoryController::class, 'create'])->name('add');
-        Route::post('/add', [CategoryController::class, 'add']);  
-        
+        Route::post('/add', [CategoryController::class, 'add']);
+
         Route::get('/edit/{id}', [CategoryController::class, 'update'])->name('edit');
         Route::post('/edit/{id}', [CategoryController::class, 'edit']);
-         
+
         Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
     });
 
 
-    Route::prefix('product')->name('product.')->group(function(){
+    Route::prefix('product')->name('product.')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('list');
 
         Route::get('/add', [ProductController::class, 'create'])->name('add');
-        Route::post('/add', [ProductController::class, 'add']);  
-        
+        Route::post('/add', [ProductController::class, 'add']);
+
         Route::get('/edit/{id}', [ProductController::class, 'update'])->name('edit');
         Route::post('/edit/{id}', [ProductController::class, 'edit']);
-         
+
         Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('delete');
     });
 
-    Route::prefix('banner')->name('banner.')->group(function(){
+    Route::prefix('banner')->name('banner.')->group(function () {
         Route::get('/', [BannerController::class, 'index'])->name('list');
         Route::get('/add', [BannerController::class, 'create'])->name('add');
         Route::post('/add', [BannerController::class, 'add']);
         Route::get('/edit/{id}', [BannerController::class, 'update'])->name('edit');
         Route::post('/edit/{id}', [BannerController::class, 'edit']);
         Route::get('/delete/{id}', [BannerController::class, 'destroy'])->name('delete');
-
-
     });
-   
 });
 
-Route::prefix('order')->name('order.')->group(function(){
+Route::prefix('order')->name('order.')->group(function () {
     Route::get('/', [OrderController::class, 'list'])->name('list');
 
     Route::get('/order_detail', [OrderController::class, 'listOrderDetail'])->name('listOrderDetail');
 
-     
+
     Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
 });

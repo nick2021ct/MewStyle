@@ -64,7 +64,7 @@
                       <span style="color: yellow"> {{ $message }}</span>
                   @enderror
                   <div class="form-group">
-                    <label for="price">Title</label>
+                    <label for="price">Price</label>
                     <input  type="text" name="price" class="form-control" id="price" placeholder="price">
                   </div>
                   @error('title')
