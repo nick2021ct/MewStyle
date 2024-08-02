@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\ProductImages;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -24,7 +28,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-       
-        return view('user.home');
+        $banners = Banner::all();
+        $categories = Category::all();
+        $products = Product::with('images')->get();
+        return view('user.home',compact('products','categories','banners'));
     }
+
+
 }

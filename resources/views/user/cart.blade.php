@@ -19,112 +19,57 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                            <tr>
-                                <td>
-                                    <a href="{{ asset('/') }}assets/users/product/details.html">
-                                        <img src="{{ asset('/') }}assets/users//images/fashion/product/front/24.jpg" class="blur-up lazyloaded"
-                                            alt="">
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="{{ asset('/') }}assets/users/product/details.html">A Porro
-                                        Voluptatibus Dolores</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="text" name="quantity" class="form-control input-number"
-                                                        value="1">
-                                                </div>
+                            @if (session('cart'))
+                                @foreach (session('cart') as $id => $details)
+                             
+                                <tr data-id="{{ $id }}">
+                                    <td data-th="Product">
+                                        <a href="">
+                                            <img src="{{ asset($details['image']) }}" class="blur-up lazyloaded"
+                                                alt="">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ asset('/') }}assets/users/product/details.html">{{ $details['name'] }}</a>
+                                        <div class="mobile-cart-content row">
+                                           
+                                            <div class="col">
+                                                <h2>${{ $details['price'] }}</h2>
+                                            </div>
+                                            <div class="col">
+                                                <h2 class="td-color">
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                </h2>
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <h2>$18</h2>
-                                        </div>
-                                        <div class="col">
-                                            <h2 class="td-color">
-                                                <a href="javascript:void(0)">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>$18</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity"
-                                                data-rowid="ba02b0dddb000b25445168300c65386d"
-                                                class="form-control input-number" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2 class="td-color">$18.00</h2>
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0)">
-                                        <i class="fas fa-times"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <a href="{{ asset('/') }}assets/users/product/details.html">
-                                        <img src="{{ asset('/') }}assets/users//images/fashion/product/front/7.jpg" class="blur-up lazyloaded"
-                                            alt="">
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="{{ asset('/') }}assets/users/product/details.html">Et
-                                        Voluptatem Repellendus Pariatur</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="text" name="quantity" class="form-control input-number"
-                                                        value="1">
-                                                </div>
+                                    </td>
+                                    <td>
+                                        <h2>${{ $details['price'] }}</h2>
+                                    </td>
+                                    <td>
+                                        <div class="qty-box">
+                                            <div class="input-group">
+                                                <input type="number" name="quantity"
+                                                    class="form-control input-number cart_update" value="{{ $details['quantity'] }}" min="1">
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <h2>$8</h2>
-                                        </div>
-                                        <div class="col">
-                                            <h2 class="td-color">
-                                                <a href="javascript:void(0)">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>$8</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity"
-                                                data-rowid="8eb747b95b9862e9d83031beb9938720"
-                                                class="form-control input-number" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2 class="td-color">$8.00</h2>
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0)">
-                                        <i class="fas fa-times"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td>
+                                        <h2 class="td-color">${{ $details['price'] * $details['quantity'] }}</h2>
+                                    </td>
+                                    <td>
+                                        <a  href="{{ route('cart_delete',$details['id'])  }}">
+                                            <i class="fas fa-times"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+                           
+
+                            
                         </tbody>
                     </table>
                 </div>
@@ -174,10 +119,16 @@
                                     <div class="total-details">
                                         <div class="top-details">
                                             <h3>Cart Totals</h3>
-                                            <h6>Sub Total <span>$26.00</span></h6>
-                                            <h6>Tax <span>$5.46</span></h6>
-
-                                            <h6>Total <span>$31.46</span></h6>
+                                            @if (session('cart'))
+                                             @php $totals = 0;  @endphp      
+                                                @foreach (session('cart') as $id => $details)
+                                                    @php
+                                                    $totals += $details['price'] * $details['quantity'];
+                                                    @endphp
+                                                    <h6>{{ $details['name'] }} <span>${{ $details['price'] * $details['quantity'] }}</span></h6>
+                                                @endforeach
+                                                <h6>Total <span>${{ $totals }}</span></h6>
+                                            @endif
                                         </div>
                                         <div class="bottom-details">
                                             <a href="checkout">Process Checkout</a>
@@ -192,4 +143,27 @@
         </div>
     </section>
 
+    @endsection
+
+    @section('scripts')
+        <script type="text/javascript">
+             $(".cart_update").change(function (e) {
+        e.preventDefault();
+    
+        var ele = $(this);
+    
+        $.ajax({
+            url: '{{ route('update_cart') }}',
+            method: "patch",
+            data: {
+                _token: '{{ csrf_token() }}', 
+                id: ele.parents("tr").attr("data-id"), 
+                quantity: ele.parents("tr").find(".input-number").val()
+            },
+            success: function (response) {
+               window.location.reload();
+            }
+        });
+    });
+        </script>
     @endsection

@@ -2,7 +2,24 @@
 @extends('user.layouts.app')
 
 @section('body')
+<style>
+    .carousel-item {
+    position: relative;
+}
 
+.additional-image {
+    position: absolute;
+    bottom: 10px; 
+    right: 10px; 
+    width: 100px;
+    height: auto; 
+}
+
+.additional-image img {
+    width: 100%; 
+    height: auto; 
+}
+</style>
 <div class="mobile-menu d-sm-none">
     <ul>
         <li>
@@ -37,71 +54,42 @@
         </li>
     </ul>
 </div>
-<section class="pt-0 poster-section">
-    <div class="poster-image slider-for custome-arrow classic-arrow">
-        <div>
-            <img src="{{ asset('/') }}assets/users/images/furniture-images/poster/1.png" class="img-fluid blur-up lazyload" alt="">
-        </div>
-        <div>
-            <img src="{{ asset('/') }}assets/users/images/furniture-images/poster/2.png" class="img-fluid blur-up lazyload" alt="">
-        </div>
-        <div>
-            <img src="{{ asset('/') }}assets/users/images/furniture-images/poster/3.png" class="img-fluid blur-up lazyload" alt="">
-        </div>
+{{-- banner --}}
+<div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
+        @foreach ($banners as $index => $banner)
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}" aria-current="{{ $index == 0 ? 'true' : 'false' }}" aria-label="Slide {{ $index + 1 }}"></button>
+        @endforeach
     </div>
-    <div class="slider-nav image-show">
-        <div>
-            <div class="poster-img">
-                <img src="{{ asset('/') }}assets/users/images/furniture-images/poster/t2.jpg" class="img-fluid blur-up lazyload" alt="">
-                <div class="overlay-color">
-                    <i class="fas fa-plus theme-color"></i>
+    <div class="carousel-inner">
+        @foreach ($banners as $index => $banner)
+        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+            <img src="{{ asset($banner->image) }}" class="d-block w-100" alt="Main image {{ $index + 1 }}">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>{{ $banner->title }}</h2>
+                <h3>{{ $banner->content }}</h3>
+                <h3>${{ $banner->sale_price ?? $banner->price }}</h3>
+                <p>{{ $banner->description }}</p>
+                <div class="additional-image">
+                    <img src="{{ asset($banner->product_image) }}" alt="Additional image {{ $index + 1 }}">
                 </div>
             </div>
         </div>
-        <div>
-            <div class="poster-img">
-                <img src="{{ asset('/') }}assets/users/images/furniture-images/poster/t1.jpg" class="img-fluid blur-up lazyload" alt="">
-                <div class="overlay-color">
-                    <i class="fas fa-plus theme-color"></i>
-                </div>
-            </div>
-
-        </div>
-        <div>
-            <div class="poster-img">
-                <img src="{{ asset('/') }}assets/users/images/furniture-images/poster/t3.jpg" class="img-fluid blur-up lazyload" alt="">
-                <div class="overlay-color">
-                    <i class="fas fa-plus theme-color"></i>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
-    <div class="left-side-contain">
-        <div class="banner-left">
-            <h4>Sale <span class="theme-color">35% Off</span></h4>
-            <h1>New Latest <span>Dresses</span></h1>
-            <p>BUY ONE GET ONE <span class="theme-color">FREE</span></p>
-            <h2>$79.00 <span class="theme-color"><del>$65.00</del></span></h2>
-            <p class="poster-details mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.</p>
-        </div>
-    </div>
+   
 
-    <div class="right-side-contain">
-        <div class="social-image">
-            <h6>Facebook</h6>
-        </div>
-
-        <div class="social-image">
-            <h6>Instagram</h6>
-        </div>
-
-        <div class="social-image">
-            <h6>Twitter</h6>
-        </div>
-    </div>
-</section>
+   
 <!-- banner section start -->
 <section class="ratio2_1 banner-style-2">
     <div class="container">
@@ -212,71 +200,74 @@
         <div class="row g-sm-4 g-3">
 
            {{-- product items --}}
-            <div class="col-xl-2 col-lg-2 col-6">
-                <div class="product-box">
-                    <div class="img-wrapper">
-                        <a href="product/details.html">
-                            <img src="{{ asset('/') }}assets/users/images/fashion/product/front/20.jpg"
-                                class="w-100 bg-img blur-up lazyload" alt="">
-                        </a>
-                        <div class="circle-shape"></div>
-                        <span class="background-text">Furniture</span>
-                        <div class="label-block">
-                            <span class="label label-theme">30% Off</span>
-                        </div>
-                        <div class="cart-wrap">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0)" class="addtocart-btn">
-                                        <i data-feather="shopping-cart"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <i data-feather="eye"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="wishlist">
-                                        <i data-feather="heart"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+           @foreach ($products as $product)
+           <div class="col-xl-2 col-lg-2 col-6">
+            <div class="product-box">
+                <div class="img-wrapper">
+                    <a href="{{ route('detail',$product->id) }}">
+            <img class="w-100 bg-img blur-up lazyload" src="{{ asset($product->images->first()->image) }}" alt="Product Image">
+
+                    </a>
+                    <div class="circle-shape"></div>
+                    <span class="background-text">Furniture</span>
+                    <div class="label-block">
+                        <span class="label label-theme">30% Off</span>
                     </div>
-                    <div class="product-style-3 product-style-chair">
-                        <div class="product-title d-block mb-0">
-                            <div class="r-price">
-                                <div class="theme-color">$21</div>
-                                <div class="main-price">
-                                    <ul class="rating mb-1 mt-0">
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star theme-color"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
+                    <div class="cart-wrap">
+                        <ul>
+                            <li>
+                                <a href="" class="addtocart-btn">
+                                    <i data-feather="shopping-cart"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i data-feather="eye"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="wishlist">
+                                    <i data-feather="heart"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-style-3 product-style-chair">
+                    <div class="product-title d-block mb-0">
+                        <div class="r-price">
+                            <div class="theme-color">{{ $product->price }}</div>
+                            <div class="main-price">
+                                <ul class="rating mb-1 mt-0">
+                                    <li>
+                                        <i class="fas fa-star theme-color"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star theme-color"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star"></i>
+                                    </li>
+                                </ul>
                             </div>
-                            <p class="font-light mb-sm-2 mb-0">Qui Ut</p>
-                            <a href="product/details.html" class="font-default">
-                                <h5>Excepturi Et In Cum</h5>
-                            </a>
                         </div>
+                        <p class="font-light mb-sm-2 mb-0">{{ $product->category->name }}</p>
+                        <a href="product/details.html" class="font-default">
+                            <h5>{{ $product->name }}</h5>
+                        </a>
                     </div>
                 </div>
             </div>
-            
+        </div>
+           @endforeach
+            {{-- product items --}}
+
 
         </div>
     </div>
@@ -1488,7 +1479,35 @@
     </div>
 </section>
 <div id="qvmodal"></div>
+<script>
+    $(document).ready(function() {
+    // Khởi tạo carousel
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        focusOnSelect: true
+    });
 
+    // Cập nhật thông tin khi slide thay đổi
+    $('.slider-for').on('afterChange', function(event, slick, currentSlide) {
+        var slide = $(slick.$slides[currentSlide]);
+        $('#banner-title').text(slide.data('title'));
+        $('#banner-subtitle').text(slide.data('subtitle'));
+        $('#banner-price').html('$' + slide.data('price') + ' <span class="theme-color"><del>$' + slide.data('original-price') + '</del></span>');
+        $('#banner-details').text(slide.data('details'));
+    });
+
+    // Trigger cập nhật thông tin cho slide đầu tiên
+    $('.slider-for').slick('slickGoTo', 0);
+});
+</script>
 
 @endsection
 

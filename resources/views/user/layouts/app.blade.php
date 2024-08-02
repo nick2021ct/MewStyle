@@ -250,7 +250,7 @@
         $('[data-bs-toggle="tooltip"]').tooltip()
     });
 </script>
-
+@yield('scripts')
 </body>
 
 </html>

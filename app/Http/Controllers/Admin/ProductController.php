@@ -131,5 +131,5 @@ class ProductController extends Controller
     return redirect()->back();
     }
 
- 
+    
 }

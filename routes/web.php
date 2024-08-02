@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
@@ -29,8 +30,12 @@ Auth::routes();
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/detail', [DetailController::class, 'detail'])->name('detail');
-Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+Route::get('/detail/{id}', [DetailController::class, 'detail'])->name('detail');
+
+
+
+
+
 Route::get('/checkout', [CheckOutController::class, 'checkout'])->name('checkout');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth','role:admin'])->group(function(){
@@ -58,6 +63,16 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','role:admin'])->group
         Route::post('/edit/{id}', [ProductController::class, 'edit']);
          
         Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('banner')->name('banner.')->group(function(){
+        Route::get('/', [BannerController::class, 'index'])->name('list');
+        Route::get('/add', [BannerController::class, 'create'])->name('add');
+        Route::post('/add', [BannerController::class, 'add']);
+        Route::get('/edit/{id}', [BannerController::class, 'update'])->name('edit');
+        Route::post('/edit/{id}', [BannerController::class, 'edit']);
+        Route::get('/delete/{id}', [BannerController::class, 'destroy'])->name('delete');
+
     });
    
 });
