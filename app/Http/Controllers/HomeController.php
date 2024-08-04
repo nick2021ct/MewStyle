@@ -26,11 +26,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+
+
+
+    public function index(Request $request)
     {
+        $search = $request->input('search');
+
         $banners = Banner::all();
         $categories = Category::all();
+        if ($search) {
+            $products = Product::where('name', 'like', "%{$search}%")->get();
+        } else{
         $products = Product::with('images')->get();
+        }
         return view('user.home',compact('products','categories','banners'));
     }
 

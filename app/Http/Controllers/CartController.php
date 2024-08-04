@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
     public function index()
     {
-        return view('user.cart');
+        $users = Auth::user();
+        return view('user.cart',compact('users'));
     }
 
     public function add(Request $request ,$id)
@@ -59,4 +62,7 @@ class CartController extends Controller
             return redirect()->back(); 
         }
     }
+
+    
+
 }

@@ -5,8 +5,8 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-8">
-                    <form class="needs-validation" method="POST" action="place-order">
-                        <input type="hidden" name="_token" value="CVH6XgdFhoUV6OBdiTIlT2bviIidpb0qD6U1Vf68">
+                    <form class="needs-validation" method="POST" action="{{ route('order.place') }}">
+                        @csrf
                         <div id="billingAddress" class="row g-4">
                             <h3 class="mb-3 theme-color">Billing address</h3>
                             <div class="col-md-6">
@@ -20,172 +20,27 @@
                                     placeholder="Enter Phone Number">
                             </div>
                             <div class="col-md-6">
-                                <label for="locality" class="form-label">Locality</label>
-                                <input type="text" class="form-control" id="locality" name="locality"
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" name="email"
                                     placeholder="Locality">
                             </div>
                             <div class="col-md-6">
-                                <label for="landmark" class="form-label">Landmark</label>
-                                <input type="text" class="form-control" id="landmark" name="landmark"
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" name="address"
                                     placeholder="Landmark">
                             </div>
 
                             <div class="col-md-12">
-                                <label for="address" class="form-label">Address</label>
-                                <textarea class="form-control" id="address" name="address"></textarea>
+                                <label for="note" class="form-label">Note</label>
+                                <textarea class="form-control" id="note" name="note"></textarea>
 
                             </div>
 
-                            <div class="col-md-3">
-                                <label for="city" class="form-label">City</label>
-                                <input type="text" class="form-control" id="city" name="city" placeholder="City">
-
-                            </div>
-
-                            <div class="col-md-3">
-                                <label for="country" class="form-label">Country</label>
-                                <select class="form-select custome-form-select" id="country" name="country">
-                                    <option>India</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid country.
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="state" class="form-label">State</label>
-                                <select class="form-select custome-form-select" id="state" name="state">
-                                    <option selected="" disabled="" value="">Choose...</option>
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                    <option value="Goa">Goa</option>
-                                    <option value="Gujarat">Gujarat</option>
-                                    <option value="Haryana">Haryana</option>
-                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                    <option value="Jharkhand">Jharkhand</option>
-                                    <option value="Karnataka">Karnataka</option>
-                                    <option value="Kerala">Kerala</option>
-                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                    <option value="Maharashtra">Maharashtra</option>
-                                    <option value="Manipur">Manipur</option>
-                                    <option value="Meghalaya">Meghalaya</option>
-                                    <option value="Mizoram">Mizoram</option>
-                                    <option value="Nagaland">Nagaland</option>
-                                    <option value="Odisha">Odisha</option>
-                                    <option value="Punjab">Punjab</option>
-                                    <option value="Rajasthan">Rajasthan</option>
-                                    <option value="Sikkim">Sikkim</option>
-                                    <option value="Tamil Nadu">Tamil Nadu</option>
-                                    <option value="Telangana">Telangana</option>
-                                    <option value="Tripura">Tripura</option>
-                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                    <option value="Uttarakhand">Uttarakhand</option>
-                                    <option value="West Bengal">West Bengal</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="zip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="zip" name="zip" placeholder="123456">
-                            </div>
-
-                            <div class="col-md-12 form-check ps-0 mt-3 custome-form-check"
-                                style="padding-left:15px !important;">
-                                <input class="checkbox_animated check-it" type="checkbox" name="sameAsBilling"
-                                    id="sameAsBilling">
-                                <label class="form-check-label checkout-label" for="sameAsBilling">Shipping address is
-                                    same as Billing Address</label>
-                            </div>
+                           
                         </div>
 
-                        <div id="shippingAddress" class="row g-4 mt-5">
-                            <h3 class="mb-3 theme-color">Shipping address</h3>
-                            <div class="col-md-6">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="s_name" name="s_name"
-                                    placeholder="Enter Full Name">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="s_phone" name="s_phone"
-                                    placeholder="Enter Phone Number">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="locality" class="form-label">Locality</label>
-                                <input type="text" class="form-control" id="s_locality" name="s_locality"
-                                    placeholder="Locality">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="landmark" class="form-label">Landmark</label>
-                                <input type="text" class="form-control" id="s_landmark" name="s_landmark"
-                                    placeholder="Landmark">
-                            </div>
+                      
 
-                            <div class="col-md-12">
-                                <label for="address" class="form-label">Address</label>
-                                <textarea class="form-control" id="s_address" name="s_address"></textarea>
-
-                            </div>
-
-                            <div class="col-md-3">
-                                <label for="city" class="form-label">City</label>
-                                <input type="text" class="form-control" id="s_city" name="s_city" placeholder="City">
-
-                            </div>
-
-                            <div class="col-md-3">
-                                <label for="country" class="form-label">Country</label>
-                                <select class="form-select custome-form-select" id="s_country" name="s_country">
-                                    <option>India</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="state" class="form-label">State</label>
-                                <select class="form-select custome-form-select" id="s_state" name="s_state">
-                                    <option selected="" disabled="" value="">Choose...</option>
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                    <option value="Goa">Goa</option>
-                                    <option value="Gujarat">Gujarat</option>
-                                    <option value="Haryana">Haryana</option>
-                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                    <option value="Jharkhand">Jharkhand</option>
-                                    <option value="Karnataka">Karnataka</option>
-                                    <option value="Kerala">Kerala</option>
-                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                    <option value="Maharashtra">Maharashtra</option>
-                                    <option value="Manipur">Manipur</option>
-                                    <option value="Meghalaya">Meghalaya</option>
-                                    <option value="Mizoram">Mizoram</option>
-                                    <option value="Nagaland">Nagaland</option>
-                                    <option value="Odisha">Odisha</option>
-                                    <option value="Punjab">Punjab</option>
-                                    <option value="Rajasthan">Rajasthan</option>
-                                    <option value="Sikkim">Sikkim</option>
-                                    <option value="Tamil Nadu">Tamil Nadu</option>
-                                    <option value="Telangana">Telangana</option>
-                                    <option value="Tripura">Tripura</option>
-                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                    <option value="Uttarakhand">Uttarakhand</option>
-                                    <option value="West Bengal">West Bengal</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="zip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="s_zip" name="s_zip" placeholder="123456">
-                            </div>
-                        </div>
-
-                        <div class="form-check ps-0 mt-3 custome-form-check">
-                            <input class="checkbox_animated check-it" type="checkbox" name="saveAddress"
-                                id="saveAddress">
-                            <label class="form-check-label checkout-label" for="saveAddress">Save this information for
-                                next time</label>
-                        </div>
 
                         <hr class="my-lg-5 my-4">
 

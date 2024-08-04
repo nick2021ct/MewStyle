@@ -27,8 +27,8 @@ class Product extends Model
         return $this->hasMany(ProductImages::class);
     }
 
-    public function carts()
+    public function orderDetails()
     {
-        return $this->belongsToMany(Cart::class)->withPivot('quantity');
+        return $this->hasMany(OrderDetail::class);
     }
 }

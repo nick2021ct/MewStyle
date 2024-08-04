@@ -84,50 +84,6 @@
 </div>
 
    
-
-   
-<!-- category section start -->
-<section class="category-section ratio_40">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="title title-2 text-center">
-                    <h2>Our Category</h2>
-                    <h5 class="text-color">Our collection</h5>
-                </div>
-            </div>
-        </div>
-        <div class="row gy-3">
-            <div class="col-xxl-2 col-lg-3">
-                <div class="category-wrap category-padding category-block theme-bg-color">
-                    <div>
-                        <h2 class="light-text">Top</h2>
-                        <h2 class="top-spacing">Our Top</h2>
-                        <span>Categories</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-10 col-lg-9">
-                <div class="category-wrapper category-slider1 white-arrow category-arrow">
-                    {{-- CATEGORIES --}}
-                   @foreach ($categories as $category)
-                   <div>
-                    <a href="{{ route('shop',$category->id) }}" class="category-wrap category-padding">
-                        <img src="{{ asset($category->image) }}" class="bg-img blur-up lazyload"
-                            alt="category image">
-                        <div class="category-content category-text-1">
-                            <h3 class="theme-color">{{ $category->name }}</h3>
-                        </div>
-                    </a>
-                </div>
-                   @endforeach
-                    {{-- CATEGORIES --}}
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- category section end -->
 <section class="ratio_asos overflow-hidden">
     <div class="container p-sm-0">
         <div class="row m-0">
@@ -173,89 +129,120 @@
         <div class="row g-sm-4 g-3">
 
            {{-- product items --}}
-           @foreach ($products as $product)
-           <div class="col-xl-2 col-lg-2 col-6">
-            <div class="product-box">
-                <div class="img-wrapper">
-                    <a href="{{ route('detail',$product->id) }}">
-            <img class="w-100 bg-img blur-up lazyload" src="{{ asset($product->main_image) }}" alt="Product Image">
-
-                    </a>
-                    <div class="circle-shape"></div>
-                    <span class="background-text">Furniture</span>
-                    <div class="label-block">
-                        <span class="label label-theme">{{ number_format((($product->price - $product->sale_price) / $product->price) * 100)  }}% Off</span>
-                    </div>
-                    <div class="cart-wrap">
-                        <ul>
-                            <li>
-                                <a href="" class="addtocart-btn">
-                                    <i data-feather="shopping-cart"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <i data-feather="eye"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="wishlist">
-                                    <i data-feather="heart"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product-style-3 product-style-chair">
-                    <div class="product-title d-block mb-0">
-                        <p class="font-light mb-sm-2 mb-0">
-                           @if (isset($product->sale_price))
-                           <del>{{ $product->price }}</del>
-                           @endif
-                        </p>
-                        <div class="r-price">
-                            
-                            <div class="theme-color">{{ $product->sale_price ?? $product->price }}</div>
-                            <div class="main-price">
-                                <ul class="rating mb-1 mt-0">
-                                    <li>
-                                        <i class="fas fa-star theme-color"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star theme-color"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <p class="font-light mb-sm-2 mb-0">{{ $product->category->name }}</p>
-                        <a href="product/details.html" class="font-default">
-                            <h5>{{ $product->name }}</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-           @endforeach
-            {{-- product items --}}
-
-
+          
+               <div class="row">
+               
+                   @foreach ($products as $product)
+                       <div class="col-xl-2 col-lg-2 col-6">
+                           <div class="product-box">
+                               <div class="img-wrapper">
+                                   <a href="{{ route('detail', $product->id) }}">
+                                       <img class="w-100 bg-img blur-up lazyload" src="{{ asset($product->main_image) }}" alt="Product Image">
+                                   </a>
+                                   <div class="circle-shape"></div>
+                                   <span class="background-text">Furniture</span>
+                                   <div class="label-block">
+                                       @if(isset($product->sale_price))
+                                           <span class="label label-theme">{{ number_format((($product->price - $product->sale_price) / $product->price) * 100) }}% Off</span>
+                                       @endif
+                                   </div>
+                                   <div class="cart-wrap">
+                                       <ul>
+                                           <li>
+                                               <a href="#" class="addtocart-btn">
+                                                   <i data-feather="shopping-cart"></i>
+                                               </a>
+                                           </li>
+                                           <li>
+                                               <a href="javascript:void(0)">
+                                                   <i data-feather="eye"></i>
+                                               </a>
+                                           </li>
+                                           <li>
+                                               <a href="javascript:void(0)" class="wishlist">
+                                                   <i data-feather="heart"></i>
+                                               </a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                               </div>
+                               <div class="product-style-3 product-style-chair">
+                                   <div class="product-title d-block mb-0">
+                                       <p class="font-light mb-sm-2 mb-0">
+                                           @if (isset($product->sale_price))
+                                               <del>{{ $product->price }}</del>
+                                           @endif
+                                       </p>
+                                       <div class="r-price">
+                                           <div class="theme-color">{{ $product->sale_price ?? $product->price }}</div>
+                                           <div class="main-price">
+                                               <ul class="rating mb-1 mt-0">
+                                                   <li><i class="fas fa-star theme-color"></i></li>
+                                                   <li><i class="fas fa-star theme-color"></i></li>
+                                                   <li><i class="fas fa-star"></i></li>
+                                                   <li><i class="fas fa-star"></i></li>
+                                                   <li><i class="fas fa-star"></i></li>
+                                               </ul>
+                                           </div>
+                                       </div>
+                                       <p class="font-light mb-sm-2 mb-0">{{ $product->category->name }}</p>
+                                       <a href="{{ route('detail', $product->id) }}" class="font-default">
+                                           <h5>{{ $product->name }}</h5>
+                                       </a>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   @endforeach
+                  
+               </div>
         </div>
     </div>
 </section>
 
 
-
-
-
+<!-- category section start -->
+<section class="category-section ratio_40">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title title-2 text-center">
+                    <h2>Our Category</h2>
+                    <h5 class="text-color">Our collection</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-3">
+            <div class="col-xxl-2 col-lg-3">
+                <div class="category-wrap category-padding category-block theme-bg-color">
+                    <div>
+                        <h2 class="light-text">Top</h2>
+                        <h2 class="top-spacing">Our Top</h2>
+                        <span>Categories</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-10 col-lg-9">
+                <div class="category-wrapper category-slider1 white-arrow category-arrow">
+                    {{-- CATEGORIES --}}
+                   @foreach ($categories as $category)
+                   <div>
+                    <a href="{{ route('shop',$category->id) }}" class="category-wrap category-padding">
+                        <img src="{{ asset($category->image) }}" class="bg-img blur-up lazyload"
+                            alt="category image">
+                        <div class="category-content category-text-1">
+                            <h3 class="theme-color">{{ $category->name }}</h3>
+                        </div>
+                    </a>
+                </div>
+                   @endforeach
+                    {{-- CATEGORIES --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- category section end -->
 
 <div id="qvmodal"></div>
 <script>

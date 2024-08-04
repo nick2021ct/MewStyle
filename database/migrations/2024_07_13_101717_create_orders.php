@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('user_address');
             $table->enum('status',['pending','prepare','shipping','success','cancel'])->default('pending');
             $table->integer('total_money');
-            $table->integer('total_quantity');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();
         });

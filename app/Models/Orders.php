@@ -14,19 +14,22 @@ class Orders extends Model
         'user_email',
         'user_phone',
         'user_address',
+        'payment_method',
         'status',
         'total_money',
-        'total_quantity',
         'created_at',
         'updated_at',
         
     ];
-    public function category(){
-        return $this->belongsTo(Category::class);
+  
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
     }
 
-    public function images()
+    public function user()
     {
-        return $this->hasMany(ProductImages::class);
+        return $this->belongsTo(User::class);
     }
 }

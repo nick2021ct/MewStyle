@@ -152,15 +152,16 @@
                                 </ul>
                             </div>
                             <div class="search-full">
-                                <form method="GET" class="search-full" action="http://localhost:8000/search">
+                                <form method="GET" class="search-full" action="{{ route('home') }}">
                                     <div class="input-group">
-                                        <span class="input-group-text">
-                                            <i data-feather="search" class="font-light"></i>
-                                        </span>
-                                        <input type="text" name="q" class="form-control search-type"
-                                            placeholder="Search here..">
+                                        
+                                        <input type="text" name="search" class="form-control search-type"
+                                            placeholder="Search here.." value="{{ isset($search) ? $search : '' }}">
                                         <span class="input-group-text close-search">
                                             <i data-feather="x" class="font-light"></i>
+                                        </span>
+                                        <span class="input-group-text">
+                                            <button  style="border: none;background: transparent;" type="submit"><i data-feather="search" class="font-light"></i></button>
                                         </span>
                                     </div>
                                 </form>

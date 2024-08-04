@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
 
-    public function index($categoryId = null)
+    public function index(Request $request,$categoryId = null)
     {
         $categories = Category::all();
 

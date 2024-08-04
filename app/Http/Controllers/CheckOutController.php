@@ -8,6 +8,7 @@ class CheckOutController extends Controller
 {
     public function checkout()
     {
+        
         return view('user.checkout');
     }
 }
