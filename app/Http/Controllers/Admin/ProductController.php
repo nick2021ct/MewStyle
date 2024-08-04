@@ -15,12 +15,13 @@ use Illuminate\Support\Facades\Validator;
 class ProductController extends Controller
 {
 
+    use ImageUploadTrait;
 
     public function validateProduct(Request $request)
     {
         return Validator::make($request->all(),[
             'images.*' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
-            'name'=>['required','max:200','unique:products,name'],
+            'name'=>['required','max:200'],
             'description'=>['required'],
             'price'=>['required','numeric'],
             'sale_price'=>['numeric'],
@@ -55,6 +56,9 @@ class ProductController extends Controller
         }
         $product = new Product();
 
+
+        $imagePath = $this->uploadImage($request,'main_image','images/product/main');
+        $product->main_image = $imagePath;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
@@ -71,6 +75,7 @@ class ProductController extends Controller
                 $product->images()->create(['image' => $path]);
             }
         }
+
 
         toastr()->addSuccess('Prduct created successfully');
         return redirect()->back();
@@ -94,6 +99,8 @@ class ProductController extends Controller
 
         $product = Product::with('images')->findOrFail($id);
 
+        $imagePath = $this->updateImage($request,'main_image','images/product/main',$product->main_image);
+        $product->main_image = $imagePath;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
@@ -117,10 +124,10 @@ class ProductController extends Controller
 
             }
         }
+       
 
         toastr()->addSuccess('Prduct updated successfully');
         return redirect()->back();
-        
     }
 
     public function destroy(Request $request,$id)

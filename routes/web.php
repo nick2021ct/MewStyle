@@ -33,6 +33,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail/{id}', [DetailController::class, 'detail'])->name('detail');
 Route::get('/shop/{categoryId?}', [ShopController::class, 'index'])->name('shop');
 
+Route::prefix('cart')->name('cart.')->middleware(['auth'])->group(function () {
+
+    Route::get('/', [CartController::class, 'index'])->name('list');
+    Route::post('/add/{id}', [CartController::class, 'add'])->name('add');
+    Route::patch('/update', [CartController::class, 'update'])->name('update');
+    Route::get('/delete/{id}', [CartController::class, 'delete'])->name('delete');
+
+});
 Route::get('/checkout', [CheckOutController::class, 'checkout'])->name('checkout');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {

@@ -45,5 +45,51 @@ trait ImageUploadTrait{
         }
     }
 
+    public function uploadManyImages(Request $request, $inputName, $path, $model, $modelInput)
+    {
+        $uploadedPaths = [];
+        if($request->hasFile($inputName)){
+            foreach ($request->file($inputName) as $image){
+                $ext = $image->getClientOriginalName();
+                $imageName = uniqid().'_'.$ext; 
+                $image->move(public_path($path), $imageName);    
+                $fullPath = $path . $imageName;
+
+                $model->create([$modelInput => $fullPath]);
+
+                $uploadedPaths[] = $fullPath;
+            }
+        }
+        return $uploadedPaths;
+
+    }
+
+    public function updateManyImages(Request $request, $inputName, $path, $model, $modelInput, $oldImages)
+    {
+        $uploadedPaths = [];
+        if($request->hasFile($inputName)){
+            foreach ($request->file($inputName) as $image){
+
+                foreach ($oldImages as $oldImage) {
+                    if (File::exists($oldImage)) {
+                        File::delete($oldImage);
+                    }
+                    $model->where($modelInput, $oldImage)->delete();
+                }
+
+                $ext = $image->getClientOriginalName();
+                $imageName = uniqid().'_'.$ext; 
+                $image->move(public_path($path), $imageName);    
+                $fullPath = $path . $imageName;
+
+                $model->create([$modelInput => $fullPath]);
+
+                $uploadedPaths[] = $fullPath;
+            }
+        }
+        return $uploadedPaths;
+
+    }
+
     
 }

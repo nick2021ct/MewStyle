@@ -83,7 +83,7 @@
                                             </li>
                                             <li><a href="index.htm" class="nav-link menu-title">Home</a></li>
                                             <li><a href="shop.html" class="nav-link menu-title">Shop</a></li>
-                                            <li><a href="" class="nav-link menu-title">Cart</a></li>
+                                            <li><a href="{{ route('cart.list') }}" class="nav-link menu-title">Cart</a></li>
                                             <li><a href="about-us.html" class="nav-link menu-title">About Us</a></li>
                                             <li><a href="contact-us.html" class="nav-link menu-title">Contact Us</a>
                                             </li>
@@ -111,10 +111,10 @@
                                     </li>
                                     <li class="onhover-dropdown wislist-dropdown">
                                         <div class="cart-media">
-                                            <a href="">
+                                            <a href="{{ route('cart.list') }}">
                                                 <i data-feather="shopping-cart"></i>
                                                 <span id="cart-count" class="label label-theme rounded-pill">
-                                                    0
+                                                    {{ count((array) session('cart')) }}
                                                 </span>
                                             </a>
                                         </div>

@@ -32,6 +32,7 @@
                   <thead>
                   <tr>
                     <th>ID</th>
+                    <th>Main Images</th>
                     <th>Images</th>
                     <th>Name</th>
                     <th>Description</th>
@@ -44,10 +45,12 @@
                   </tr>
                   </thead>
                   <tbody>
-                  
                     @foreach ($products as $product)
                     <tr> 
                     <td>{{ $product->id }}</td>
+                    <td style="width: 80px">
+                      <img src="{{ asset($product->main_image) }}"  alt="" width="60px">
+                    </td>
                     <td style="width: 280px">@foreach ($product->images as $proIma)
                         <img src="{{ asset($proIma->image) }}" alt="" width="60px">
                     @endforeach</td>

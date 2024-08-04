@@ -20,6 +20,8 @@
     <meta name="description" content="Surfside Media">
     <meta name="keywords" content="Surfside Media">
     <meta name="author" content="Surfside Media">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <title>SurfsideMedia</title>
@@ -249,6 +251,8 @@
 <script src="{{ asset('/') }}assets/users/js/theme-setting.js"></script>
 <script src="{{ asset('/') }}assets/users/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/ion.rangeSlider.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <script>
     $(function () {

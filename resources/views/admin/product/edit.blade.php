@@ -33,10 +33,19 @@
                 @csrf
                 
                 <div class="card-body">
-                  
+                  <img width="300px" src="{{ asset($product->main_image) }}" alt="">
+
+                  <div class="form-group">
+                    <label for="images">Main Images</label>
+                    <input type="file" name="main_image" class="form-control" id="main_image" placeholder="main_image">
+                  </div>
+                  @error('main_image')
+                      <span style="color: yellow"> {{ $message }}</span>
+                  @enderror
                         @foreach ($product->images as $proImage)
                             <img width="300px" src="{{ asset($proImage->image) }}" alt="">
                         @endforeach
+                        
                   <div class="form-group">
                     <label for="images">Images</label>
                     <input  type="file" name="images[]" class="form-control" id="images" placeholder="images" multiple>

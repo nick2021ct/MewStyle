@@ -12,6 +12,7 @@ class Product extends Model
 
     protected $fillable =[
         'name',
+        'main_image',
         'description',
         'price',
         'sale_price',
@@ -26,5 +27,8 @@ class Product extends Model
         return $this->hasMany(ProductImages::class);
     }
 
-   
+    public function carts()
+    {
+        return $this->belongsToMany(Cart::class)->withPivot('quantity');
+    }
 }
