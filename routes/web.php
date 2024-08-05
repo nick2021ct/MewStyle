@@ -3,12 +3,12 @@
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ShopController;
 use App\Http\Middleware\CheckAdminMiddlerware;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +41,9 @@ Route::prefix('cart')->name('cart.')->middleware(['auth'])->group(function () {
 
 });
 
-Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('order.place');
+Route::post('/place-order', [PaymentController::class, 'placeOrder'])->name('order.place');
+Route::get('/thankyou', [PaymentController::class, 'thankyou'])->name('thankyou');
+
 
 Route::get('/checkout', [CheckOutController::class, 'checkout'])->name('checkout');
 
@@ -77,14 +79,5 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     });
 });
 
-// Route::prefix('order')->name('order.')->group(function () {
-//     Route::get('/', [OrderController::class, 'list'])->name('list');
-
-//     Route::get('/order_detail', [OrderController::class, 'listOrderDetail'])->name('listOrderDetail');
 
 
-//     Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
-// });
-
-
-Route::get('momoPayment',[OrderController::class,'momoPayment'])->name('payment.momo');

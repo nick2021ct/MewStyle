@@ -149,7 +149,7 @@
                                    <div class="cart-wrap">
                                        <ul>
                                            <li>
-                                               <a href="#" class="addtocart-btn">
+                                               <a href="{{ route('cart.add',$product->id) }}" class="addtocart-btn">
                                                    <i data-feather="shopping-cart"></i>
                                                </a>
                                            </li>

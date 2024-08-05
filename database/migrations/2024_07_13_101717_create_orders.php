@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('user_email');
             $table->string('user_phone');
             $table->string('user_address');
+            $table->string('note')->nullable();
+            $table->string('payment_method');
             $table->enum('status',['pending','prepare','shipping','success','cancel'])->default('pending');
             $table->integer('total_money');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');

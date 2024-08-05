@@ -251,7 +251,6 @@
 <script src="{{ asset('/') }}assets/users/js/theme-setting.js"></script>
 <script src="{{ asset('/') }}assets/users/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/ion.rangeSlider.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 <script>
