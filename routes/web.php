@@ -77,11 +77,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     });
 });
 
-Route::prefix('order')->name('order.')->group(function () {
-    Route::get('/', [OrderController::class, 'list'])->name('list');
+// Route::prefix('order')->name('order.')->group(function () {
+//     Route::get('/', [OrderController::class, 'list'])->name('list');
 
-    Route::get('/order_detail', [OrderController::class, 'listOrderDetail'])->name('listOrderDetail');
+//     Route::get('/order_detail', [OrderController::class, 'listOrderDetail'])->name('listOrderDetail');
 
 
-    Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
-});
+//     Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
+// });
+
+
+Route::get('momoPayment',[OrderController::class,'momoPayment'])->name('payment.momo');

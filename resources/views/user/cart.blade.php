@@ -111,16 +111,12 @@
                                         <label class="form-check-label" for="cod">COD</label>
                                     </div>
                                     <div class="form-check custome-radio-box">
-                                        <input class="form-check-input" type="radio" name="payment_method" value="Debit card"
+                                        <input class="form-check-input" type="radio" name="payment_method" value="Momo"
                                             id="debit">
-                                        <label class="form-check-label" for="debit">Debit card</label>
+                                        <label class="form-check-label" for="debit">Momo</label>
                                     </div>
 
-                                    <div class="form-check custome-radio-box">
-                                        <input class="form-check-input" type="radio" name="payment_method" value="PayPal"
-                                            id="paypal">
-                                        <label class="form-check-label" for="paypal">PayPal</label>
-                                    </div>
+                                   
                                 </div>
                                 {{-- <div class="row g-4" style="display: none;">
                                     <div class="col-md-6">
