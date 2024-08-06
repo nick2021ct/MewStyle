@@ -19,7 +19,6 @@ class Orders extends Model
         'total_money',
         'created_at',
         'updated_at',
-        
     ];
   
 

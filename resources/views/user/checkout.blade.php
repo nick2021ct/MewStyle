@@ -12,22 +12,22 @@
                             <div class="col-md-6">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Enter Full Name">
+                                    placeholder="Enter Full Name" value="{{ $users->name }}">
                             </div>
                             <div class="col-md-6">
                                 <label for="phone" class="form-label">Phone</label>
                                 <input type="text" class="form-control" id="phone" name="phone"
-                                    placeholder="Enter Phone Number">
+                                    placeholder="Enter Phone Number" value="{{ $users->phone }}">
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email"
-                                    placeholder="Locality">
+                                    placeholder="Locality" value="{{ $users->email }}">
                             </div>
                             <div class="col-md-6">
                                 <label for="address" class="form-label">Address</label>
                                 <input type="text" class="form-control" id="address" name="address"
-                                    placeholder="Landmark">
+                                    placeholder="address" value="{{ $users->address }}">
                             </div>
 
                             <div class="col-md-12">
@@ -36,10 +36,10 @@
 
                             </div>
 
-                           
+
                         </div>
 
-                      
+
 
 
                         <hr class="my-lg-5 my-4">
@@ -48,21 +48,19 @@
 
                         <div class="d-block my-3">
                             <div class="form-check custome-radio-box">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" checked=""
-                                    id="cod">
+                                <input class="form-check-input" type="radio" name="payment_method" value="COD"
+                                    checked="" id="cod">
                                 <label class="form-check-label" for="cod">COD</label>
                             </div>
                             <div class="form-check custome-radio-box">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="debit">
-                                <label class="form-check-label" for="debit">Debit card</label>
+                                <input class="form-check-input" type="radio" name="payment_method" value="stripe"
+                                    id="debit">
+                                <label class="form-check-label" for="debit">Stripe</label>
                             </div>
 
-                            <div class="form-check custome-radio-box">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="paypal">
-                                <label class="form-check-label" for="paypal">PayPal</label>
-                            </div>
+                           
                         </div>
-                        <div class="row g-4" style="display: none;">
+                        {{-- <div class="row g-4" style="display: none;">
                             <div class="col-md-6">
                                 <label for="cc-name" class="form-label">Name on card</label>
                                 <input type="text" class="form-control" id="cc-name">
@@ -81,7 +79,7 @@
                                 <label for="cc-cvv" class="form-label">CVV</label>
                                 <input type="text" class="form-control" id="cc-cvv">
                             </div>
-                        </div>
+                        </div> --}}
                         <button class="btn btn-solid-default mt-4" type="submit">Place Order</button>
                     </form>
                 </div>
@@ -89,22 +87,27 @@
                 <div class="col-lg-4">
                     <div class="your-cart-box">
                         <h3 class="mb-3 d-flex text-capitalize">Your cart<span
-                                class="badge bg-theme new-badge rounded-pill ms-auto bg-dark">0</span>
+                                class="badge bg-theme new-badge rounded-pill ms-auto bg-dark">{{ count((array) session('cart')) }}</span>
                         </h3>
                         <ul class="list-group mb-3">
 
-
-
+                                    @php $total = 0; @endphp
+                                    @foreach ((array) session('cart') as $id => $details)
+                                        @php
+                                            $total += $details['price'] * $details['quantity'];
+                                        @endphp
                             <li class="list-group-item d-flex justify-content-between lh-condensed active">
                                 <div class="text-dark">
-                                    <h6 class="my-0">Tax</h6>
-                                    <small></small>
+                                    <h6 class="my-0">{{ $details['product_name'] }}</h6>
+                                    <small>Quantity: {{ $details['quantity'] }}</small>
                                 </div>
-                                <span>$0.00</span>
+                                <span>${{ number_format($details['price'] * $details['quantity'],3)  }}</span>
                             </li>
+                            @endforeach
+
                             <li class="list-group-item d-flex lh-condensed justify-content-between">
-                                <span class="fw-bold">Total (USD)</span>
-                                <strong>$0.00</strong>
+                                <span class="fw-bold">Total (VND)</span>
+                                <strong>${{ number_format($total,3)  }}</strong>
                             </li>
                         </ul>
 

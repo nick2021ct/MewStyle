@@ -50,6 +50,22 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.user.list') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Users
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.order.list') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Order
+              </p>
+            </a>
+          </li>
           
           <li class="nav-item">
             <a href="#" class="nav-link">

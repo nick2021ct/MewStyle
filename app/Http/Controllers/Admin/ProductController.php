@@ -36,7 +36,7 @@ class ProductController extends Controller
         });
     }
     public function index(){
-        $products = Product::with('category')->get();
+        $products = Product::with('category')->orderBy('created_at', 'desc')->get();
         return view('admin.product.list',compact('products'));
     }
          

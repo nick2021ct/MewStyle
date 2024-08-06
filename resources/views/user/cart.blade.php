@@ -5,6 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
+                    @if (session('cart'))
                     <table class="table cart-table">
                         <thead>
                             <tr class="table-head">
@@ -17,7 +18,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if (session('cart'))
+                           
                                 @foreach (session('cart') as $id => $details)
                                     <tr data-id="{{ $id }}">
                                         <td data-th="Product">
@@ -51,19 +52,18 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @endif
-
-
-
                         </tbody>
                     </table>
+                    @else
+                    <h3>There nothing here. Plese add something to cart</h3>
+                    @endif
                 </div>
                 <div class="col-12 mt-md-5 mt-4">
                     <div class="row">
                         <div class="col-md-8">
 
 
-                            <form class="needs-validation" method="POST" action="{{ route('order.place') }}">
+                            {{-- <form class="needs-validation" method="POST" action="{{ route('order.place') }}">
                                 @csrf
                                 <div id="billingAddress" class="row g-4">
                                     <h3 class="mb-3 theme-color">Billing address</h3>
@@ -118,36 +118,18 @@
 
                                    
                                 </div>
-                                {{-- <div class="row g-4" style="display: none;">
-                                    <div class="col-md-6">
-                                        <label for="cc-name" class="form-label">Name on card</label>
-                                        <input type="text" class="form-control" id="cc-name">
-                                        <div id="emailHelp" class="form-text">Full name as displayed on card</div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="cc-number" class="form-label">Credit card number</label>
-                                        <input type="text" class="form-control" id="cc-number">
-                                        <div class="invalid-feedback">Credit card number is required</div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="expiration" class="form-label">Expiration</label>
-                                        <input type="text" class="form-control" id="expiration">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="cc-cvv" class="form-label">CVV</label>
-                                        <input type="text" class="form-control" id="cc-cvv">
-                                    </div>
-                                </div> --}}
+                               
                                 <button class="btn btn-solid-default mt-4" type="submit">Place Order</button>
-                            </form>
+                            </form> --}}
                             <div class="col-sm-5 col-7">
-                                {{-- <div class="left-side-button float-start">
-                                <a href="../shop.html" class="btn btn-solid-default btn fw-bold mb-0 ms-0">
+                                <div class="left-side-button float-start">
+                                <a href="{{ route('home') }}" class="btn btn-solid-default btn fw-bold mb-0 ms-0">
                                     <i class="fas fa-arrow-left"></i> Continue Shopping</a>
-                            </div> --}}
+                            </div>
 
                             </div>
                         </div>
+                        @if (session('cart'))
                         <div class="cart-checkout-section col-md-4">
                             <div class="cart-box">
                                 <div class="cart-box-details">
@@ -166,13 +148,16 @@
                                             <h6 style="color: orange">Total <span
                                                     style="color: orange">${{ $total }}</span></h6>
                                         </div>
-                                        {{-- <div class="bottom-details">
-                                        <a href="checkout">Process Checkout</a>
-                                    </div> --}}
+                                        <div class="bottom-details">
+                                        <a href="{{ route('checkout') }}">Process Checkout</a>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @else
+                       
+                        @endif
                     </div>
                 </div>
 

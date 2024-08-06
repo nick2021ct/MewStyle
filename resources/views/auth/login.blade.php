@@ -35,7 +35,9 @@
                         <i class="fa fa-check"></i>
                     </button>
                 </div>
-
+                <a href="{{ route('login-by-google') }}" style="background-color:gray" type="button"  class="btn btn-light btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                  </a>
                 <p>Not a member? <a href="register.html" class="theme-color">Sign up now</a></p>
             </form>
         </div>

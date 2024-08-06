@@ -12,8 +12,8 @@ class PaymentController extends Controller
 {
     public function placeOrder(Request $request)
     {
-        if (!session()->has('cart')) {
-            toastr()->addError('There no Item to checkout');
+        if (!session()->has('cart') || empty(session('cart'))) {
+            toastr()->error('There are no items to checkout');
             return redirect()->back();
         }
 
@@ -41,12 +41,11 @@ class PaymentController extends Controller
             
             toastr()->addSuccess('Order has been placed successfully with COD.');
 
-
             return redirect()->route('thankyou');
         }
 
-        if ($orderTemp['payment_method'] == 'Momo') {
-            $this->momoPayment();
+        if ($orderTemp['payment_method'] == 'stripe') {
+            $this->stripePayment($orderTemp);
         }
     }
 
@@ -89,83 +88,8 @@ class PaymentController extends Controller
 
 
 // phần code của ngân hàng
-    public function execPostRequest($url, $data)
-    {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($data))
-        );
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        //execute post
-        $result = curl_exec($ch);
-        //close connection
-        curl_close($ch);
-        return $result;
-    }
+   
+    
 
-
-    public function momoPayment()
-    {
-       
-    $endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
-
-
-    $partnerCode = "MOMOBKUN20180529";
-$accessKey = "klm05TvNBzhg7h7j";
-$secretKey = "at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa";
-$orderInfo = "Thanh toán qua MoMo";
-$amount = "10000";
-$orderId = time() . "";
-$returnUrl = "http://mewstyle.test/place-order";
-$notifyurl = "http://mewstyle.test/place-order";
-$extraData = "";
-// Lưu ý: link notifyUrl không phải là dạng localhost
-$bankCode = "SML";
-     
-$requestId = time() . "";
-$requestType = "payWithMoMoATM";
-         //before sign HMAC SHA256 signature
-         $rawHashArr =  array(
-                        'partnerCode' => $partnerCode,
-                        'accessKey' => $accessKey,
-                        'requestId' => $requestId,
-                        'amount' => $amount,
-                        'orderId' => $orderId,
-                        'orderInfo' => $orderInfo,
-                        'bankCode' => $bankCode,
-                        'returnUrl' => $returnUrl,
-                        'notifyUrl' => $notifyurl,
-                        'extraData' => $extraData,
-                        'requestType' => $requestType
-                        );
-         // echo $serectkey;die;
-         $rawHash = "partnerCode=".$partnerCode."&accessKey=".$accessKey."&requestId=".$requestId."&bankCode=".$bankCode."&amount=".$amount."&orderId=".$orderId."&orderInfo=".$orderInfo."&returnUrl=".$returnUrl."&notifyUrl=".$notifyurl."&extraData=".$extraData."&requestType=".$requestType;
-         $signature = hash_hmac("sha256", $rawHash, $secretKey);
-         $data =  array('partnerCode' => $partnerCode,
-                        'accessKey' => $accessKey,
-                        'requestId' => $requestId,
-                        'amount' => $amount,
-                        'orderId' => $orderId,
-                        'orderInfo' => $orderInfo,
-                        'returnUrl' => $returnUrl,
-                        'bankCode' => $bankCode,
-                        'notifyUrl' => $notifyurl,
-                        'extraData' => $extraData,
-                        'requestType' => $requestType,
-                        'signature' => $signature);
-         $result =$this->execPostRequest($endpoint, json_encode($data));
-         dd($result);
-         $jsonResult = json_decode($result,true);  // decode json
-         
-         error_log( print_r( $jsonResult, true ) );
-         header('Location: '.$jsonResult['payUrl']);
-        
-
-
-    }
+   
 }

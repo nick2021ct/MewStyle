@@ -14,7 +14,7 @@ class CategoryController extends Controller
 
     public function list()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('created_at', 'desc')->get();
         return view('admin.category.list',compact('categories'));
     }
     public function create()

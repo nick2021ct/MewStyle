@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('password');
             $table->enum('type',[User::TYPE_ADMIN,User::TYPE_USER])->default(User::TYPE_USER);
+            $table->string('google_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

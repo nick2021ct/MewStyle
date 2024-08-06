@@ -3,7 +3,11 @@
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\OrderDetailController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginGoogleController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\DetailController;
@@ -28,6 +32,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+
+Route::get('auth/google',[LoginGoogleController::class,'redirectGoogle'])->name('login-by-google');
+Route::get('auth/google/callback',[LoginGoogleController::class,'handleGoogleCallback']);
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail/{id}', [DetailController::class, 'detail'])->name('detail');
@@ -76,6 +84,29 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
         Route::get('/edit/{id}', [BannerController::class, 'update'])->name('edit');
         Route::post('/edit/{id}', [BannerController::class, 'edit']);
         Route::get('/delete/{id}', [BannerController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('user')->name('user.')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('list');
+        Route::get('/add', [UserController::class, 'create'])->name('add');
+        Route::post('/add', [UserController::class, 'add']);
+        Route::get('/edit/{id}', [UserController::class, 'update'])->name('edit');
+        Route::post('/edit/{id}', [UserController::class, 'edit']);
+        Route::get('/delete/{id}', [UserController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('order')->name('order.')->group(function () {
+        Route::get('/', [OrderController::class, 'index'])->name('list');
+        Route::get('/edit/{id}', [OrderController::class, 'update'])->name('edit');
+        Route::post('/edit/{id}', [OrderController::class, 'edit']);
+        Route::get('/delete/{id}', [OrderController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('order-detail')->name('order-detail.')->group(function () {
+        Route::get('/{id}', [OrderDetailController::class, 'index'])->name('list');
+        Route::get('/edit/{id}', [OrderDetailController::class, 'update'])->name('edit');
+        Route::post('/edit/{id}', [OrderDetailController::class, 'edit']);
+        Route::get('/delete/{id}', [OrderDetailController::class, 'destroy'])->name('delete');
     });
 });
 
